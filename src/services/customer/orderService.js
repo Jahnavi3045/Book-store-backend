@@ -29,9 +29,9 @@ const placeAnOrder = async (userId, orderDescription, address) => {
 }
 
 const getOrdersByUser = async (userId) => {
-    const orders = await Order.findOne({ user: userId, orderStatus: 'PLACED' });
+    const orders = await Order.find({ user: userId, orderStatus: 'PLACED' });
 
-    if (orders.length<0) {
+    if (orders.length==0) {
         return { status: 404, data: 'Ordersnot found' }
     }
 
